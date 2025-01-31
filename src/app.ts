@@ -1,8 +1,12 @@
-import express from "express"
-import birdRoutes from "./routes/bird"
+import express from "express";
+import birdRoutes from "./routes/bird";
+import cors from "cors";
 
-const app = express()
+const app = express();
 
-app.use("/bird",birdRoutes)
+app.use(express.json());
 
-export default app
+app.use(cors());
+app.use("/api/birds", birdRoutes);
+
+export default app;
